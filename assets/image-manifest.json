@@ -1,0 +1,362 @@
+{
+  "assets/covers/karina-live.jpg": {
+    "width": 1280,
+    "height": 720,
+    "src": "assets/media/0d672af38db32e-640.webp",
+    "srcset": "assets/media/0d672af38db32e-320.webp 320w, assets/media/0d672af38db32e-640.webp 640w, assets/media/0d672af38db32e-1280.webp 1280w"
+  },
+  "assets/covers/marina-live.jpg": {
+    "width": 1280,
+    "height": 720,
+    "src": "assets/media/9b985eeae3263d-640.webp",
+    "srcset": "assets/media/9b985eeae3263d-320.webp 320w, assets/media/9b985eeae3263d-640.webp 640w, assets/media/9b985eeae3263d-1280.webp 1280w"
+  },
+  "assets/covers/natalya-live.jpg": {
+    "width": 1280,
+    "height": 720,
+    "src": "assets/media/d8fb4045501ee1-640.webp",
+    "srcset": "assets/media/d8fb4045501ee1-320.webp 320w, assets/media/d8fb4045501ee1-640.webp 640w, assets/media/d8fb4045501ee1-1280.webp 1280w"
+  },
+  "assets/covers/olga-live.jpg": {
+    "width": 1280,
+    "height": 720,
+    "src": "assets/media/3c4eba21830460-640.webp",
+    "srcset": "assets/media/3c4eba21830460-320.webp 320w, assets/media/3c4eba21830460-640.webp 640w, assets/media/3c4eba21830460-1280.webp 1280w"
+  },
+  "assets/covers/story-recording-clean.png": {
+    "width": 941,
+    "height": 1672,
+    "src": "assets/media/45534e5e841022-640.webp",
+    "srcset": "assets/media/45534e5e841022-320.webp 320w, assets/media/45534e5e841022-640.webp 640w, assets/media/45534e5e841022-941.webp 941w"
+  },
+  "assets/covers/svetlana-live.jpg": {
+    "width": 1280,
+    "height": 720,
+    "src": "assets/media/c222f3a1836451-640.webp",
+    "srcset": "assets/media/c222f3a1836451-320.webp 320w, assets/media/c222f3a1836451-640.webp 640w, assets/media/c222f3a1836451-1280.webp 1280w"
+  },
+  "assets/founder/zhenya-kovalenko-user.jpg": {
+    "width": 1536,
+    "height": 2752,
+    "src": "assets/media/3e44b5abea86bc-640.webp",
+    "srcset": "assets/media/3e44b5abea86bc-128.webp 128w, assets/media/3e44b5abea86bc-320.webp 320w, assets/media/3e44b5abea86bc-640.webp 640w, assets/media/3e44b5abea86bc-1280.webp 1280w"
+  },
+  "assets/hero/portfolio/ai-animation.webp": {
+    "width": 600,
+    "height": 450,
+    "src": "assets/media/3e78c3337e7e54-600.webp",
+    "srcset": "assets/media/3e78c3337e7e54-320.webp 320w, assets/media/3e78c3337e7e54-600.webp 600w"
+  },
+  "assets/hero/portfolio/beauty-reels.webp": {
+    "width": 600,
+    "height": 450,
+    "src": "assets/media/2db406f54f1f54-600.webp",
+    "srcset": "assets/media/2db406f54f1f54-320.webp 320w, assets/media/2db406f54f1f54-600.webp 600w"
+  },
+  "assets/hero/portfolio/botanical-illustration.webp": {
+    "width": 600,
+    "height": 600,
+    "src": "assets/media/40078d4b59ac00-600.webp",
+    "srcset": "assets/media/40078d4b59ac00-320.webp 320w, assets/media/40078d4b59ac00-600.webp 600w"
+  },
+  "assets/hero/portfolio/brand-identity.webp": {
+    "width": 600,
+    "height": 450,
+    "src": "assets/media/272120efffca1a-600.webp",
+    "srcset": "assets/media/272120efffca1a-320.webp 320w, assets/media/272120efffca1a-600.webp 600w"
+  },
+  "assets/hero/portfolio/chrome-fragrance.webp": {
+    "width": 600,
+    "height": 600,
+    "src": "assets/media/2039cdee6535ed-600.webp",
+    "srcset": "assets/media/2039cdee6535ed-320.webp 320w, assets/media/2039cdee6535ed-600.webp 600w"
+  },
+  "assets/hero/portfolio/citrus-drink.webp": {
+    "width": 600,
+    "height": 600,
+    "src": "assets/media/e624d79b6f7de7-600.webp",
+    "srcset": "assets/media/e624d79b6f7de7-320.webp 320w, assets/media/e624d79b6f7de7-600.webp 600w"
+  },
+  "assets/hero/portfolio/coral-skincare.webp": {
+    "width": 600,
+    "height": 600,
+    "src": "assets/media/e3b603b36e13cf-600.webp",
+    "srcset": "assets/media/e3b603b36e13cf-320.webp 320w, assets/media/e3b603b36e13cf-600.webp 600w"
+  },
+  "assets/hero/portfolio/fashion-model.webp": {
+    "width": 600,
+    "height": 900,
+    "src": "assets/media/41fd2646092c6e-600.webp",
+    "srcset": "assets/media/41fd2646092c6e-320.webp 320w, assets/media/41fd2646092c6e-600.webp 600w"
+  },
+  "assets/hero/portfolio/fashion-monochrome.webp": {
+    "width": 600,
+    "height": 600,
+    "src": "assets/media/b9e0b232c75674-600.webp",
+    "srcset": "assets/media/b9e0b232c75674-320.webp 320w, assets/media/b9e0b232c75674-600.webp 600w"
+  },
+  "assets/hero/portfolio/food-editorial.webp": {
+    "width": 600,
+    "height": 600,
+    "src": "assets/media/99a63ad864d6ff-600.webp",
+    "srcset": "assets/media/99a63ad864d6ff-320.webp 320w, assets/media/99a63ad864d6ff-600.webp 600w"
+  },
+  "assets/hero/portfolio/perfume.webp": {
+    "width": 600,
+    "height": 450,
+    "src": "assets/media/b451866cd89396-600.webp",
+    "srcset": "assets/media/b451866cd89396-320.webp 320w, assets/media/b451866cd89396-600.webp 600w"
+  },
+  "assets/hero/portfolio/playful-character.webp": {
+    "width": 600,
+    "height": 600,
+    "src": "assets/media/673addb39bee18-600.webp",
+    "srcset": "assets/media/673addb39bee18-320.webp 320w, assets/media/673addb39bee18-600.webp 600w"
+  },
+  "assets/hero/portfolio/sport-sneaker.webp": {
+    "width": 600,
+    "height": 600,
+    "src": "assets/media/2dca62ea839762-600.webp",
+    "srcset": "assets/media/2dca62ea839762-320.webp 320w, assets/media/2dca62ea839762-600.webp 600w"
+  },
+  "assets/hero/portfolio/ugc-lifestyle.webp": {
+    "width": 600,
+    "height": 450,
+    "src": "assets/media/c5657d0c118c23-600.webp",
+    "srcset": "assets/media/c5657d0c118c23-320.webp 320w, assets/media/c5657d0c118c23-600.webp 600w"
+  },
+  "assets/img/studio-team-candid-v2.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/ad751968816940-640.webp",
+    "srcset": "assets/media/ad751968816940-320.webp 320w, assets/media/ad751968816940-640.webp 640w, assets/media/ad751968816940-1280.webp 1280w"
+  },
+  "assets/logo/logo-full-640.png": {
+    "width": 640,
+    "height": 407,
+    "src": "assets/media/ff34efbc543cc9-640.webp",
+    "srcset": "assets/media/ff34efbc543cc9-160.webp 160w, assets/media/ff34efbc543cc9-320.webp 320w, assets/media/ff34efbc543cc9-640.webp 640w"
+  },
+  "assets/logo/logo-mark-160.png": {
+    "width": 200,
+    "height": 160,
+    "src": "assets/media/bd606abfcb3bda-200.webp",
+    "srcset": "assets/media/bd606abfcb3bda-160.webp 160w, assets/media/bd606abfcb3bda-200.webp 200w"
+  },
+  "assets/services/01-photo-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/1b0e1e35c6cb45-640.webp",
+    "srcset": "assets/media/1b0e1e35c6cb45-320.webp 320w, assets/media/1b0e1e35c6cb45-640.webp 640w, assets/media/1b0e1e35c6cb45-1280.webp 1280w"
+  },
+  "assets/services/02-video-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/f49a6fee706e07-640.webp",
+    "srcset": "assets/media/f49a6fee706e07-320.webp 320w, assets/media/f49a6fee706e07-640.webp 640w, assets/media/f49a6fee706e07-1280.webp 1280w"
+  },
+  "assets/services/03-reels-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/1ed98fb1d5928c-640.webp",
+    "srcset": "assets/media/1ed98fb1d5928c-320.webp 320w, assets/media/1ed98fb1d5928c-640.webp 640w, assets/media/1ed98fb1d5928c-1280.webp 1280w"
+  },
+  "assets/services/04-ugc-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/e27f1a1a87cadf-640.webp",
+    "srcset": "assets/media/e27f1a1a87cadf-320.webp 320w, assets/media/e27f1a1a87cadf-640.webp 640w, assets/media/e27f1a1a87cadf-1280.webp 1280w"
+  },
+  "assets/services/05-models-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/c8e8e8aa1126a0-640.webp",
+    "srcset": "assets/media/c8e8e8aa1126a0-320.webp 320w, assets/media/c8e8e8aa1126a0-640.webp 640w, assets/media/c8e8e8aa1126a0-1280.webp 1280w"
+  },
+  "assets/services/06-packages-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/b1b699b3d28052-640.webp",
+    "srcset": "assets/media/b1b699b3d28052-320.webp 320w, assets/media/b1b699b3d28052-640.webp 640w, assets/media/b1b699b3d28052-1280.webp 1280w"
+  },
+  "assets/services/07-identity-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/45059053304ee7-640.webp",
+    "srcset": "assets/media/45059053304ee7-320.webp 320w, assets/media/45059053304ee7-640.webp 640w, assets/media/45059053304ee7-1280.webp 1280w"
+  },
+  "assets/services/08-animation-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/f4c418c0a3f215-640.webp",
+    "srcset": "assets/media/f4c418c0a3f215-320.webp 320w, assets/media/f4c418c0a3f215-640.webp 640w, assets/media/f4c418c0a3f215-1280.webp 1280w"
+  },
+  "assets/services/09-smm-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/f05ab5e72ffc01-640.webp",
+    "srcset": "assets/media/f05ab5e72ffc01-320.webp 320w, assets/media/f05ab5e72ffc01-640.webp 640w, assets/media/f05ab5e72ffc01-1280.webp 1280w"
+  },
+  "assets/tasks/offer-reels-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/1ed98fb1d5928c-640.webp",
+    "srcset": "assets/media/1ed98fb1d5928c-320.webp 320w, assets/media/1ed98fb1d5928c-640.webp 640w, assets/media/1ed98fb1d5928c-1280.webp 1280w"
+  },
+  "assets/tasks/offer-review-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/e27f1a1a87cadf-640.webp",
+    "srcset": "assets/media/e27f1a1a87cadf-320.webp 320w, assets/media/e27f1a1a87cadf-640.webp 640w, assets/media/e27f1a1a87cadf-1280.webp 1280w"
+  },
+  "assets/tasks/offer-ugc-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/693905b3efaa98-640.webp",
+    "srcset": "assets/media/693905b3efaa98-320.webp 320w, assets/media/693905b3efaa98-640.webp 640w, assets/media/693905b3efaa98-1280.webp 1280w"
+  },
+  "assets/tasks/task-advertising-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/f49a6fee706e07-640.webp",
+    "srcset": "assets/media/f49a6fee706e07-320.webp 320w, assets/media/f49a6fee706e07-640.webp 640w, assets/media/f49a6fee706e07-1280.webp 1280w"
+  },
+  "assets/tasks/task-ai-avatar-clean.png": {
+    "width": 1536,
+    "height": 1024,
+    "src": "assets/media/72ac148af83068-640.webp",
+    "srcset": "assets/media/72ac148af83068-320.webp 320w, assets/media/72ac148af83068-640.webp 640w, assets/media/72ac148af83068-1280.webp 1280w"
+  },
+  "assets/tasks/task-animate-image-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/f4c418c0a3f215-640.webp",
+    "srcset": "assets/media/f4c418c0a3f215-320.webp 320w, assets/media/f4c418c0a3f215-640.webp 640w, assets/media/f4c418c0a3f215-1280.webp 1280w"
+  },
+  "assets/tasks/task-marketplace-clean.png": {
+    "width": 1536,
+    "height": 1024,
+    "src": "assets/media/622d8ba3b9a236-640.webp",
+    "srcset": "assets/media/622d8ba3b9a236-320.webp 320w, assets/media/622d8ba3b9a236-640.webp 640w, assets/media/622d8ba3b9a236-1280.webp 1280w"
+  },
+  "assets/tasks/task-new-collection-clean.png": {
+    "width": 1024,
+    "height": 1536,
+    "src": "assets/media/b90d9db45b9c56-640.webp",
+    "srcset": "assets/media/b90d9db45b9c56-320.webp 320w, assets/media/b90d9db45b9c56-640.webp 640w, assets/media/b90d9db45b9c56-1024.webp 1024w"
+  },
+  "assets/tasks/task-new-product-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/1b0e1e35c6cb45-640.webp",
+    "srcset": "assets/media/1b0e1e35c6cb45-320.webp 320w, assets/media/1b0e1e35c6cb45-640.webp 640w, assets/media/1b0e1e35c6cb45-1280.webp 1280w"
+  },
+  "assets/tasks/task-refresh-visual-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/45059053304ee7-640.webp",
+    "srcset": "assets/media/45059053304ee7-320.webp 320w, assets/media/45059053304ee7-640.webp 640w, assets/media/45059053304ee7-1280.webp 1280w"
+  },
+  "assets/tasks/task-reviews-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/e27f1a1a87cadf-640.webp",
+    "srcset": "assets/media/e27f1a1a87cadf-320.webp 320w, assets/media/e27f1a1a87cadf-640.webp 640w, assets/media/e27f1a1a87cadf-1280.webp 1280w"
+  },
+  "assets/tasks/task-seasonal-clean.png": {
+    "width": 1536,
+    "height": 1024,
+    "src": "assets/media/c3032c269f947c-640.webp",
+    "srcset": "assets/media/c3032c269f947c-320.webp 320w, assets/media/c3032c269f947c-640.webp 640w, assets/media/c3032c269f947c-1280.webp 1280w"
+  },
+  "assets/tasks/task-social-content-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/b1b699b3d28052-640.webp",
+    "srcset": "assets/media/b1b699b3d28052-320.webp 320w, assets/media/b1b699b3d28052-640.webp 640w, assets/media/b1b699b3d28052-1280.webp 1280w"
+  },
+  "assets/tasks/task-social-management-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/f05ab5e72ffc01-640.webp",
+    "srcset": "assets/media/f05ab5e72ffc01-320.webp 320w, assets/media/f05ab5e72ffc01-640.webp 640w, assets/media/f05ab5e72ffc01-1280.webp 1280w"
+  },
+  "assets/works/01-product-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/1b0e1e35c6cb45-640.webp",
+    "srcset": "assets/media/1b0e1e35c6cb45-320.webp 320w, assets/media/1b0e1e35c6cb45-640.webp 640w, assets/media/1b0e1e35c6cb45-1280.webp 1280w"
+  },
+  "assets/works/02-video-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/f49a6fee706e07-640.webp",
+    "srcset": "assets/media/f49a6fee706e07-320.webp 320w, assets/media/f49a6fee706e07-640.webp 640w, assets/media/f49a6fee706e07-1280.webp 1280w"
+  },
+  "assets/works/03-storyboard-clean.png": {
+    "width": 1536,
+    "height": 1024,
+    "src": "assets/media/d9442e77cbdf84-640.webp",
+    "srcset": "assets/media/d9442e77cbdf84-320.webp 320w, assets/media/d9442e77cbdf84-640.webp 640w, assets/media/d9442e77cbdf84-1280.webp 1280w"
+  },
+  "assets/works/04-campaign-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/1ed98fb1d5928c-640.webp",
+    "srcset": "assets/media/1ed98fb1d5928c-320.webp 320w, assets/media/1ed98fb1d5928c-640.webp 640w, assets/media/1ed98fb1d5928c-1280.webp 1280w"
+  },
+  "assets/works/05-content-package-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/b1b699b3d28052-640.webp",
+    "srcset": "assets/media/b1b699b3d28052-320.webp 320w, assets/media/b1b699b3d28052-640.webp 640w, assets/media/b1b699b3d28052-1280.webp 1280w"
+  },
+  "assets/works/06-identity-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/45059053304ee7-640.webp",
+    "srcset": "assets/media/45059053304ee7-320.webp 320w, assets/media/45059053304ee7-640.webp 640w, assets/media/45059053304ee7-1280.webp 1280w"
+  },
+  "assets/works/07-animation-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/f4c418c0a3f215-640.webp",
+    "srcset": "assets/media/f4c418c0a3f215-320.webp 320w, assets/media/f4c418c0a3f215-640.webp 640w, assets/media/f4c418c0a3f215-1280.webp 1280w"
+  },
+  "assets/works/08-idea-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/f05ab5e72ffc01-640.webp",
+    "srcset": "assets/media/f05ab5e72ffc01-320.webp 320w, assets/media/f05ab5e72ffc01-640.webp 640w, assets/media/f05ab5e72ffc01-1280.webp 1280w"
+  },
+  "assets/works/09-social-clean.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/e27f1a1a87cadf-640.webp",
+    "srcset": "assets/media/e27f1a1a87cadf-320.webp 320w, assets/media/e27f1a1a87cadf-640.webp 640w, assets/media/e27f1a1a87cadf-1280.webp 1280w"
+  },
+  "assets/works/10-process-clean.png": {
+    "width": 1536,
+    "height": 1024,
+    "src": "assets/media/7cc4af5f5d39b2-640.webp",
+    "srcset": "assets/media/7cc4af5f5d39b2-320.webp 320w, assets/media/7cc4af5f5d39b2-640.webp 640w, assets/media/7cc4af5f5d39b2-1280.webp 1280w"
+  },
+  "assets/works/consult-cosmetics-collection-v3.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/a5e286cf85b2a4-640.webp",
+    "srcset": "assets/media/a5e286cf85b2a4-320.webp 320w, assets/media/a5e286cf85b2a4-640.webp 640w, assets/media/a5e286cf85b2a4-1280.webp 1280w"
+  },
+  "assets/works/consult-cosmetics-packaging-v3.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/94a695bccfa375-640.webp",
+    "srcset": "assets/media/94a695bccfa375-320.webp 320w, assets/media/94a695bccfa375-640.webp 640w, assets/media/94a695bccfa375-1280.webp 1280w"
+  },
+  "assets/works/consult-cosmetics-serum-v3.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/1d14fabbacfdcb-640.webp",
+    "srcset": "assets/media/1d14fabbacfdcb-320.webp 320w, assets/media/1d14fabbacfdcb-640.webp 640w, assets/media/1d14fabbacfdcb-1280.webp 1280w"
+  }
+}

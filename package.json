@@ -1,0 +1,12 @@
+{
+  "name": "ai-growth-studio-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Buildless AI Growth Studio landing page",
+  "scripts": {
+    "build": "node scripts/build.cjs",
+    "check": "node scripts/check-site.cjs",
+    "test": "node scripts/check-site.cjs"
+  },
+  "engines": { "node": ">=18" }
+}
