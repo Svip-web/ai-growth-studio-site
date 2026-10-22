@@ -183,6 +183,21 @@
     first.querySelector('.ac-body').style.height = 'auto';
   }
 
+  /* ---------- компактная галерея косметической линейки ---------- */
+  var accGallery = document.querySelector('.acc-gallery-grid');
+  if(accGallery){
+    accGallery.addEventListener('click', function(e){
+      var selected = e.target.closest('.acc-gallery-frame');
+      if(!selected || selected.classList.contains('is-main')) return;
+      accGallery.querySelectorAll('.acc-gallery-frame').forEach(function(frame){
+        var active = frame === selected;
+        frame.classList.toggle('is-main', active);
+        frame.setAttribute('aria-pressed', active ? 'true' : 'false');
+        frame.querySelector('img').sizes = active ? '(max-width: 720px) 60vw, 360px' : '(max-width: 720px) 28vw, 180px';
+      });
+    });
+  }
+
   /* ---------- кейсы ---------- */
   var grid = document.getElementById('casegrid'), g = '';
   CASES.forEach(function(c, i){
