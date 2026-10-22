@@ -580,7 +580,7 @@ section{padding:100px 0; position:relative}
 .ac.open{margin:18px 0; overflow:hidden; border-bottom-color:transparent; border-radius:28px;
   background:linear-gradient(135deg,#f7f2e9 0%,#efe5d6 100%);
   box-shadow:0 24px 55px rgba(74,55,30,.14),inset 0 0 0 1px rgba(194,153,67,.16)}
-.ac-head{width:100%; border:0; background:none; text-align:left; color:inherit; cursor:pointer;
+.ac-head{position:relative; width:100%; border:0; background:none; text-align:left; color:inherit; cursor:pointer;
   display:flex; align-items:center; gap:clamp(14px,2.4vw,32px); padding:clamp(20px,2.2vw,30px) 0;
   transition:padding .35s var(--e)}
 .ac-head:focus-visible{outline:3px solid rgba(var(--yellow-rgb),.55); outline-offset:4px; border-radius:16px}
@@ -598,6 +598,21 @@ section{padding:100px 0; position:relative}
 .ac.open .ac-arrow{background:var(--yellow); box-shadow:none}
 .ac.open .ac-arrow svg{stroke:var(--navy); transform:rotate(45deg)}
 .ac.open .ac-name{color:var(--navy); transform:none}
+.ac-preview{display:none}
+@media (min-width:721px) and (hover:hover) and (pointer:fine){
+  .ac:hover,.ac:focus-within{position:relative; z-index:5}
+  .ac-preview{display:block; position:absolute; z-index:6; top:50%; right:clamp(68px,9vw,130px);
+    width:clamp(180px,20vw,260px); aspect-ratio:4/3; overflow:hidden; pointer-events:none;
+    border:4px solid var(--white); border-radius:18px; background:var(--paper-3);
+    box-shadow:0 18px 36px rgba(16,42,67,.18); opacity:0; visibility:hidden;
+    transform:translateY(calc(-50% + 10px)) rotate(-3deg) scale(.94);
+    transition:opacity .22s var(--e),transform .32s var(--e),visibility 0s .22s}
+  .ac-preview img{width:100%; height:100%; object-fit:cover}
+  .ac:not(.open) .ac-head:hover .ac-preview,
+  .ac:not(.open) .ac-head:focus-visible .ac-preview{opacity:1; visibility:visible;
+    transform:translateY(-50%) rotate(-7deg) scale(1); transition-delay:0s}
+}
+@media (prefers-reduced-motion:reduce){.ac-preview{transition:none}}
 /* высота задаётся скриптом в пикселях: грид с 0fr/1fr на этом содержимом
    не схлопывается и не раскрывается одновременно */
 .ac-body{height:0; overflow:hidden; transition:height .5s var(--e)}

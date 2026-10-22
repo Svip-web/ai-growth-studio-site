@@ -149,7 +149,9 @@
     h += '<article class="ac rv">' +
       '<button class="ac-head" type="button" id="' + triggerId + '" aria-expanded="false" aria-controls="' + panelId + '"><span class="ac-num">' + num + '</span>' +
       '<span class="ac-name">' + s.n + '</span>' +
-      '<span class="ac-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>' +
+      '<span class="ac-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>' +
+      (s.img ? '<span class="ac-preview" aria-hidden="true"><img ' +
+        imageAttrs('assets/services/' + s.img, '(max-width: 1300px) 20vw, 260px', true) + ' alt=""></span>' : '') + '</button>' +
       '<div class="ac-body" id="' + panelId + '" role="region" aria-labelledby="' + triggerId + '"><div class="ac-in"><div class="ac-txt">' +
       '<span class="ac-label">Задача</span><p class="ac-q">' + s.q + '</p>' +
       '<div class="ac-result"><span class="ac-label">Результат</span><p>' + s.d + '</p></div><div class="ac-cols">' +
@@ -173,7 +175,7 @@
     item.querySelector('.ac-head').setAttribute('aria-expanded', 'false');
   }
   function open(item){
-    hydrateImages(item);
+    hydrateImages(item.querySelector('.ac-body'));
     var body = item.querySelector('.ac-body'), inner = item.querySelector('.ac-in');
     clearTimeout(item.tmr);
     var hh = inner.offsetHeight;
@@ -203,6 +205,20 @@
     first.querySelector('.ac-head').setAttribute('aria-expanded', 'true');
     first.querySelector('.ac-body').style.height = 'auto';
   }
+
+  /* Only fine pointers / keyboard focus hydrate the tilted desktop thumbnails. */
+  var servicePreviewMedia = matchMedia('(min-width:721px) and (hover:hover) and (pointer:fine)');
+  function showServicePreview(target){
+    if(!servicePreviewMedia.matches) return;
+    var trigger = target.closest('.ac-head');
+    if(!trigger || trigger.closest('.ac').classList.contains('open')) return;
+    var preview = trigger.querySelector('.ac-preview');
+    if(preview) hydrateImages(preview);
+  }
+  acc.addEventListener('pointerover', function(e){
+    if(e.pointerType === 'mouse') showServicePreview(e.target);
+  });
+  acc.addEventListener('focusin', function(e){ showServicePreview(e.target); });
 
   /* ---------- компактная галерея косметической линейки ---------- */
   var accGallery = document.querySelector('.acc-gallery-grid');
