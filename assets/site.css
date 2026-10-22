@@ -52,7 +52,7 @@
 :root{
   --paper:#F7F6F2; --paper-2:#F1F0EC; --paper-3:#E9E8E3;
   --navy:#102A43; --blue:#1E4E73; --soft:#E5E4DE;
-  --yellow:#FFD166; --yellow-rgb:255,209,102; --accent-deep:#B77B0D; --accent-soft:#FFF4D8;
+  --yellow:#F2B31A; --yellow-rgb:242,179,26; --accent-deep:#9B6500; --accent-soft:#FFF0C4;
   --white:#fff; --ink:#102A43;
   --mut:#5E6B76; --mut-2:#87919B; --on-dark:#C9D2DB;
   --line:#E2E0D9; --line-2:#D6D3CB;
@@ -180,7 +180,7 @@ section{padding:100px 0; position:relative}
   box-shadow:0 0 0 34px rgba(255,255,255,.28); pointer-events:none}
 .hero h1{max-width:14ch; margin:24px 0 0}
 .hero h1>span{display:block; white-space:nowrap}
-.hero-accent{display:inline-block; color:var(--yellow); font-style:italic; font-weight:500}
+.hero-accent{display:inline-block; color:var(--accent-deep); font-style:italic; font-weight:500}
 .hero .lead{margin:26px 0 34px; max-width:530px}
 .hero .lead strong{color:var(--navy); font-weight:700}
 .hero-btns{max-width:420px}
@@ -300,7 +300,7 @@ section{padding:100px 0; position:relative}
 .tsk-btns button{display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:12px;
   min-height:78px; border:1.4px solid var(--line-2); cursor:pointer; text-align:left;
   font:700 14px/1.3 Manrope; letter-spacing:0; padding:14px 14px 14px 16px; border-radius:18px;
-  background:rgba(255,255,255,.78); color:var(--navy);
+  background:rgba(255,255,255,.78); color:var(--navy); touch-action:manipulation;
   transition:background .3s,color .3s,border-color .3s,transform .3s var(--e),box-shadow .3s}
 .tsk-num{color:var(--mut-2); font:800 10px/1 Manrope; letter-spacing:.08em}
 .tsk-name{min-width:0}
@@ -309,8 +309,10 @@ section{padding:100px 0; position:relative}
   transition:background .3s,color .3s,transform .3s var(--e)}
 .tsk-go svg{width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:1.8;
   stroke-linecap:round; stroke-linejoin:round}
-.tsk-btns button:hover{transform:translateY(-3px); border-color:rgba(16,41,74,.45)}
-.tsk-btns button:hover .tsk-go{background:var(--yellow); transform:translate(2px,-2px)}
+@media (min-width:721px) and (hover:hover) and (pointer:fine){
+  .tsk-btns button:hover{transform:translateY(-3px); border-color:rgba(16,41,74,.45)}
+  .tsk-btns button:hover .tsk-go{background:var(--yellow); transform:translate(2px,-2px)}
+}
 .tsk-btns button.on{background:var(--navy); color:#fff; border-color:var(--navy)}
 .tsk-btns button.on .tsk-num{color:var(--yellow)}
 .tsk-btns button.on .tsk-go{background:var(--yellow); color:var(--navy)}
@@ -611,7 +613,7 @@ section{padding:100px 0; position:relative}
 .ac-txt .ac-q{font-family:inherit; font-weight:500;
   font-size:clamp(30px,2.65vw,39px); line-height:1.25; letter-spacing:0; color:var(--navy)!important;
   max-width:24ch; margin-bottom:26px}
-.ac-txt .ac-q em{color:var(--yellow); font-weight:500; font-style:italic}
+.ac-txt .ac-q em{color:var(--accent-deep); font-weight:500; font-style:italic}
 .ac-result{padding:18px 20px 19px; border-left:3px solid var(--yellow); border-radius:0 16px 16px 0;
   background:rgba(255,255,255,.58)}
 .ac-result .ac-label{margin-bottom:7px}
@@ -651,7 +653,7 @@ section{padding:100px 0; position:relative}
 }
 
 /* ---------- кейсы / слайдер ---------- */
-.cases-title-accent{color:var(--yellow)}
+.cases-title-accent{color:var(--accent-deep)}
 .cases-shell{--case-shot-h:28.875cqw; position:relative; container-type:inline-size; padding:0;
   border-radius:0; background:transparent; box-shadow:none; border:0}
 .cases{display:flex; gap:clamp(14px,1.7vw,24px); overflow-x:auto; scroll-snap-type:x mandatory;
@@ -1027,9 +1029,9 @@ section{padding:100px 0; position:relative}
   .btn::after{display:none}
 }
 
-.hero-accent{color:var(--yellow)}
+.hero-accent{color:var(--accent-deep)}
 .acc-note-copy h3 strong{color:var(--navy)}
-.about-copy h2 em{color:var(--yellow)}
+.about-copy h2 em{color:var(--accent-deep)}
 .hmark::before{
   background:radial-gradient(circle at 50% 44%,#fff 0%,var(--paper-2) 49%,rgba(247,246,242,0) 73%)
 }
@@ -1133,17 +1135,24 @@ body,body *{letter-spacing:normal!important}
   .hero-in::before{width:210px; height:210px; right:-130px; bottom:-130px}
   .hero-in>div:first-child{width:100%; min-width:0}
   .hero h1{width:100%; margin-top:0}
+  .hvisual-streams{
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 12%,#000 88%,transparent 100%);
+    mask-image:linear-gradient(to bottom,transparent 0%,#000 12%,#000 88%,transparent 100%)}
   .tasks{padding-top:60px}
   .tsk-btns{display:flex; grid-template-columns:none; gap:10px; overflow-x:auto;
     scroll-snap-type:x mandatory; scroll-behavior:smooth; scrollbar-width:none;
-    overscroll-behavior-x:contain; touch-action:pan-x; padding:4px 0 16px; margin-bottom:0}
+    overscroll-behavior-x:contain; touch-action:manipulation; padding:4px 0 16px; margin-bottom:0}
   .tsk-btns::-webkit-scrollbar{display:none}
   .tsk-swipe-hint{display:flex; align-items:center; justify-content:flex-end; gap:8px;
     min-height:30px; margin:0 2px 14px; color:var(--mut); font:600 11px/1.3 Manrope}
-  .tsk-btns button{flex:0 0 min(82%,320px); min-height:92px; padding:14px 16px;
-    border-radius:16px; scroll-snap-align:start; scroll-snap-stop:always}
+  .tsk-btns button{flex:0 0 calc((100% - 10px)/2); grid-template-columns:auto minmax(0,1fr);
+    align-content:center; align-items:start; gap:6px; min-height:84px; padding:12px 10px;
+    border-radius:14px; font-size:clamp(12px,3.34vw,13px); line-height:1.35; -webkit-tap-highlight-color:transparent;
+    scroll-snap-align:start; scroll-snap-stop:always}
+  .tsk-num{padding-top:3px}
+  .tsk-go{display:none}
   .tsk-out{grid-template-columns:1fr; gap:16px; padding:16px}
-  .tsk-media{height:auto; aspect-ratio:16/10; border-radius:18px}
+  .tsk-media{height:auto; aspect-ratio:4/5; border-radius:18px}
   .tsk-info{padding:0 5px 8px}
   .tsk-q{min-height:2.16em}
   .tsk-kicker{margin-top:22px}
@@ -1270,12 +1279,6 @@ body,body *{letter-spacing:normal!important}
 @media (max-width:540px){
   .hero h1{width:100%; max-width:none; margin-top:0;
     font-size:clamp(39px,10.8vw,44px); line-height:1.01}
-  .tsk-btns{gap:10px}
-  .tsk-btns button{grid-template-columns:auto minmax(0,1fr); align-content:center; align-items:start;
-    gap:10px; min-height:92px; padding:16px; border-radius:16px; font-size:14px; line-height:1.35}
-  .tsk-btns button:last-child:nth-child(odd){grid-column:auto; min-height:92px}
-  .tsk-num{padding-top:3px}
-  .tsk-go{display:none}
   .hero-btns{max-width:100%}
   .hero-cta{min-height:62px; padding-left:20px}
   .hero-cta-copy strong{font-size:15.5px}

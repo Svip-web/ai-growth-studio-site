@@ -103,8 +103,12 @@
         '<span class="tsk-num">' + String(i + 1).padStart(2, '0') + '</span><span class="tsk-name">' + t.n + '</span>' +
         '<span class="tsk-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 16L16 8M10 8h6v6"/></svg></span></button>';
     }).join('');
+    var activeTask = -1, taskTouch = null;
     function showTask(i){
+      if(i === activeTask) return;
       var t = TASKS[i];
+      if(!t) return;
+      activeTask = i;
       tout.innerHTML = '<div class="tsk-media"><img ' + imageAttrs('assets/tasks/' + t.img, '(max-width: 720px) calc(100vw - 72px), 480px') + ' alt="' + t.alt + '"></div>' +
         '<div class="tsk-info"><p class="tsk-q">' + t.q + '</p><p class="tsk-kicker">В решении</p>' +
         '<div class="tsk-list">' + t.out.map(function(x){ return '<span>' + x + '</span>'; }).join('') + '</div></div>';
@@ -117,6 +121,23 @@
     tbtns.addEventListener('click', function(e){
       var b = e.target.closest('button'); if(b) showTask(+b.dataset.i);
     });
+    /* Touch selects on release; a drag remains native horizontal/page scrolling. */
+    tbtns.addEventListener('pointerdown', function(e){
+      if(e.pointerType !== 'touch') return;
+      var b = e.target.closest('button');
+      taskTouch = e.isPrimary && b ? {id:e.pointerId, button:b, x:e.clientX, y:e.clientY, time:e.timeStamp} : null;
+    }, {passive:true});
+    tbtns.addEventListener('pointermove', function(e){
+      if(taskTouch && e.pointerId === taskTouch.id &&
+        Math.hypot(e.clientX - taskTouch.x, e.clientY - taskTouch.y) > 10) taskTouch = null;
+    }, {passive:true});
+    tbtns.addEventListener('pointercancel', function(){ taskTouch = null; }, {passive:true});
+    tbtns.addEventListener('pointerup', function(e){
+      var tap = taskTouch;
+      taskTouch = null;
+      if(tap && e.pointerId === tap.id && e.timeStamp - tap.time < 600 &&
+        Math.hypot(e.clientX - tap.x, e.clientY - tap.y) <= 10) showTask(+tap.button.dataset.i);
+    }, {passive:true});
     showTask(0);
   }
 
