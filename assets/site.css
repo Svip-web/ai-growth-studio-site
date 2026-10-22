@@ -942,19 +942,35 @@ body.menu-open{position:fixed; top:var(--menu-scroll-offset,0px); left:0; right:
 .form.sent .form-body{display:none}
 
 /* ---------- подвал ---------- */
-.ftr{padding:40px 0 24px; border-top:1px solid var(--line)}
+.ftr{padding:28px 0 22px; border-top:1px solid var(--line)}
 .ftr-in{display:grid; gap:26px}
-.ftr-top{display:flex; align-items:center; justify-content:space-between; gap:28px}
+.ftr-main{display:grid; grid-template-columns:minmax(280px,1.2fr) minmax(200px,.8fr) minmax(170px,.6fr);
+  align-items:start; gap:clamp(24px,4vw,56px)}
+.ftr-identity{display:flex; align-items:center; gap:20px}
+.ftr-identity p{color:var(--mut); font-size:14px; line-height:1.6}
 .ftr-brand{display:inline-flex; flex:none; text-decoration:none}
-.ftr img{height:64px; width:auto}
-.ftr-nav{display:flex; justify-content:flex-end; align-items:center; gap:8px clamp(18px,2.5vw,36px); flex-wrap:wrap}
-.ftr-nav a{display:inline-flex; align-items:center; min-height:44px;
-  font:600 14.5px Manrope; color:var(--navy); text-decoration:none; transition:color .25s}
-.ftr-nav a:hover{color:var(--accent-deep)}
+.ftr-brand img{width:112px; height:auto}
+.ftr-label{margin-bottom:10px; color:var(--mut); font:700 11px/1.4 Manrope; text-transform:uppercase}
+.ftr-nav{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 22px}
+.ftr-nav a{display:inline-flex; align-items:center; min-height:36px;
+  font:600 14px Manrope; color:var(--navy); text-decoration:none; transition:color .25s}
+.ftr-nav a:hover,.ftr-telegram:hover strong{color:var(--accent-deep)}
+.ftr-telegram{display:flex; align-items:center; gap:12px; color:var(--navy); text-decoration:none}
+.ftr-tg-icon{display:grid; place-items:center; flex:none; width:40px; height:40px;
+  border-radius:12px; background:var(--navy); color:var(--white)}
+.ftr-tg-icon svg{width:19px; height:19px; fill:none; stroke:currentColor; stroke-width:1.6; stroke-linejoin:round}
+.ftr-telegram strong{display:block; font:700 14px/1.4 Manrope; transition:color .25s}
+.ftr-telegram small{display:block; margin-top:3px; font:500 12px/1.4 Manrope; color:var(--mut)}
 .ftr-bottom{display:flex; align-items:center; justify-content:space-between; gap:20px;
-  padding-top:20px; border-top:1px solid var(--line)}
+  padding-top:18px; border-top:1px solid var(--line)}
+.ftr-controls{display:flex; align-items:center; gap:18px; flex:none}
+.ftr-backtop{display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  min-height:40px; padding:8px 12px; border:1px solid var(--line-2); border-radius:999px;
+  font:600 12px/1.2 Manrope; color:var(--navy); text-decoration:none}
+.ftr-backtop:hover{background:var(--white); border-color:var(--navy)}
+.ftr-backtop svg{width:17px; height:17px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round}
 .ftr .lang{margin:0}
-.ftr small{font-size:12.5px; color:var(--mut-2)}
+.ftr-bottom>small{min-width:0; font-size:12px; color:var(--mut)}
 
 /* ---------- drawer кейса ---------- */
 .dr-back{position:fixed; inset:0; z-index:95; background:rgba(16,24,32,.44); backdrop-filter:blur(3px);
@@ -1139,6 +1155,10 @@ body,body *{letter-spacing:normal!important}
   .acc-note{grid-template-columns:minmax(0,1fr) minmax(270px,.72fr)}
 }
 @media (max-width:860px){
+  .ftr-main{grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px}
+  .ftr-identity{grid-column:1/-1}
+  .ftr-nav{grid-template-columns:1fr}
+  .ftr-telegram{flex-direction:column; align-items:flex-start; gap:10px}
   .mnav.on{display:flex}
   .final-in{grid-template-columns:1fr}
   .faq-layout{grid-template-columns:1fr; grid-template-areas:"heading" "questions" "consult";
@@ -1283,15 +1303,15 @@ body,body *{letter-spacing:normal!important}
   .final .form{padding:22px 18px; border-radius:21px}
   .final .form-t{font-size:20px; margin-bottom:20px}
   .form-contact-fields{grid-template-columns:1fr; gap:0}
-  .ftr{padding:32px 0 22px}
+  .ftr{padding:24px 0 20px}
   .ftr-in{gap:22px}
-  .ftr-top{flex-direction:column; gap:18px}
-  .ftr img{height:60px}
-  .ftr-nav{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:4px 16px; width:100%; text-align:center}
-  .ftr-nav a{justify-content:center}
-  .ftr-nav a:last-child{grid-column:1/-1}
-  .ftr-bottom{gap:12px; flex-wrap:wrap}
-  .ftr small{text-align:right}
+  .ftr-identity{gap:18px}
+  .ftr-identity p{font-size:13px}
+  .ftr-nav a{min-height:40px}
+  .ftr-bottom{gap:12px}
+  .ftr-controls{gap:14px}
+  .ftr-backtop{width:40px; padding:8px}
+  .ftr-backtop span{display:none}
 }
 @media (max-width:430px){
   .tsk-offer-art{height:310px}

@@ -528,36 +528,24 @@
 
   /* ---------- окно с приглашением на консультацию ---------- */
   var pop = document.getElementById('pop');
-  function popSeen(){ try{ return sessionStorage.getItem('pop-v2') === '1'; }catch(e){ return false; } }
-  function popRemember(){ try{ sessionStorage.setItem('pop-v2', '1'); }catch(e){} }
   if(pop){
-    var popShown = false, popTimer;
-    function showPop(force){
-      if(!force && (popShown || popSeen())) return;
+    var popTrigger;
+    function showPop(){
       /* не перекрываем видео и панель кейса */
       if(vm.classList.contains('on') || drawer.classList.contains('on') || mnav.classList.contains('on')) return;
-      popShown = true; pop.classList.add('on');
+      popTrigger = document.activeElement;
+      pop.classList.add('on');
       document.body.style.overflow = 'hidden';
       document.getElementById('pop-x').focus();
     }
     function hidePop(){
-      pop.classList.remove('on'); popRemember();
+      pop.classList.remove('on');
       document.body.style.overflow = '';
+      if(popTrigger) popTrigger.focus({preventScroll:true});
     }
     var heroConsult = document.getElementById('hero-consult');
-    if(heroConsult) heroConsult.addEventListener('click', function(){
-      clearTimeout(popTimer); removeEventListener('scroll', popScroll); showPop(true);
-    });
-    function popScroll(){
-      var max = document.documentElement.scrollHeight - innerHeight;
-      if(max > 0 && scrollY / max > 0.6){
-        clearTimeout(popTimer); removeEventListener('scroll', popScroll); showPop();
-      }
-    }
-    if(!popSeen()){
-      popTimer = setTimeout(showPop, 180000);   /* три минуты на сайте */
-      addEventListener('scroll', popScroll, {passive:true});
-    }
+    /* Consultation opens only after an explicit button click, never on time or scroll. */
+    if(heroConsult) heroConsult.addEventListener('click', showPop);
     document.getElementById('pop-x').addEventListener('click', hidePop);
     pop.addEventListener('click', function(e){ if(e.target === pop) hidePop(); });
     addEventListener('keydown', function(e){
@@ -575,7 +563,6 @@
       if(!good) return;
       document.getElementById('pop-box').classList.add('sent');
       document.getElementById('pop-ok').classList.add('on');
-      popRemember();
     });
   }
 

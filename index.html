@@ -12,8 +12,8 @@
 <link rel="preload" href="assets/fonts/manrope-normal-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/playfair-normal-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 
-<link rel="stylesheet" href="assets/site.css?v=f247e65d2b6f">
-<script src="assets/site.js?v=1be4860c5760" defer></script>
+<link rel="stylesheet" href="assets/site.css?v=69deb6f275ef">
+<script src="assets/site.js?v=afddf3d0f2f0" defer></script>
 </head>
 <body>
 
@@ -570,19 +570,34 @@
   </div>
 </section>
 
-<footer class="ftr">
+<footer class="ftr" id="footer">
   <div class="wrap ftr-in">
-    <div class="ftr-top">
-      <a class="ftr-brand" href="#"><img src="assets/media/ff34efbc543cc9-640.webp" srcset="assets/media/ff34efbc543cc9-160.webp 160w, assets/media/ff34efbc543cc9-320.webp 320w, assets/media/ff34efbc543cc9-640.webp 640w" sizes="112px" alt="AI Growth Studio" width="640" height="407" decoding="async"></a>
-      <nav class="ftr-nav" aria-label="Навигация в подвале">
-        <a href="#services">Услуги</a><a href="#cases">Кейсы</a>
-        <a href="#about">О нас</a><a href="#contact">Контакты</a>
-        <a href="https://t.me/jk_aicreator" target="_blank" rel="noopener">Telegram</a>
-      </nav>
+    <div class="ftr-main">
+      <div class="ftr-identity">
+        <a class="ftr-brand" href="#"><img src="assets/media/ff34efbc543cc9-640.webp" srcset="assets/media/ff34efbc543cc9-160.webp 160w, assets/media/ff34efbc543cc9-320.webp 320w, assets/media/ff34efbc543cc9-640.webp 640w" sizes="112px" alt="AI Growth Studio" width="640" height="407" decoding="async"></a>
+        <p>Визуальный контент<br>для брендов.</p>
+      </div>
+      <div>
+        <p class="ftr-label">Студия</p>
+        <nav class="ftr-nav" aria-label="Навигация в подвале">
+          <a href="#services">Услуги</a><a href="#cases">Работы</a>
+          <a href="#about">О нас</a><a href="#contact">Контакты</a>
+        </nav>
+      </div>
+      <div class="ftr-contact">
+        <p class="ftr-label">На связи</p>
+        <a class="ftr-telegram" href="https://t.me/jk_aicreator" target="_blank" rel="noopener">
+          <span class="ftr-tg-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 2 9.5 14.5"/><path d="m22 2-8 20-4.5-7.5L2 10 22 2Z"/></svg></span>
+          <span><strong>Telegram</strong><small>@jk_aicreator</small></span>
+        </a>
+      </div>
     </div>
     <div class="ftr-bottom">
-      <div class="lang"><a href="#" class="on">RU</a><i></i><span title="Английская версия готовится">EN</span></div>
       <small>© 2026 AI Growth Studio</small>
+      <div class="ftr-controls">
+        <div class="lang"><a href="#" class="on">RU</a><i></i><span title="Английская версия готовится">EN</span></div>
+        <a class="ftr-backtop" href="#" aria-label="Вернуться к началу страницы"><span>Наверх</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+      </div>
     </div>
   </div>
 </footer>

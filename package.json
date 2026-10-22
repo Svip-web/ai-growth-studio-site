@@ -6,7 +6,7 @@
   "scripts": {
     "build": "node scripts/build.cjs",
     "check": "node scripts/check-site.cjs",
-    "test": "node scripts/check-site.cjs && node scripts/test-task-picker.cjs"
+    "test": "node scripts/check-site.cjs && node scripts/test-task-picker.cjs && node scripts/test-popup.cjs"
   },
   "engines": { "node": ">=18" }
 }
