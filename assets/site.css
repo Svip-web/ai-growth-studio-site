@@ -346,9 +346,10 @@ body.menu-open{position:fixed; top:var(--menu-scroll-offset,0px); left:0; right:
 .tsk-offer::after{content:""; position:absolute; z-index:-1; width:250px; height:250px;
   left:42%; bottom:-190px; border-radius:50%; border:1px solid rgba(255,255,255,.13)}
 .tsk-offer-copy{position:relative; z-index:2; max-width:640px}
-.tsk-offer-kicker{display:inline-flex; align-items:center; gap:9px; margin-bottom:18px;
-  font:800 11px/1 Manrope; letter-spacing:.16em; text-transform:uppercase; color:var(--yellow)}
-.tsk-offer-kicker::before{content:""; width:8px; height:8px; border-radius:50%; background:var(--yellow)}
+.tsk-offer-kicker{display:inline-flex; align-items:center; gap:8px; max-width:100%;
+  margin-bottom:18px; padding:9px 13px; border-radius:999px; background:var(--yellow);
+  font:800 12.5px/1.4 Manrope; letter-spacing:0; color:var(--navy)}
+.tsk-offer-kicker::before{content:""; flex:none; width:6px; height:6px; border-radius:50%; background:currentColor}
 .tsk-offer h3{max-width:620px; font-family:"Playfair Display",Georgia,serif; font-weight:600;
   font-size:clamp(34px,4vw,58px); line-height:1.02; letter-spacing:0; color:#fff}
 .tsk-offer h3 em{color:var(--yellow); font-weight:500}
@@ -1089,8 +1090,6 @@ body.menu-open{position:fixed; top:var(--menu-scroll-offset,0px); left:0; right:
 .strip span::after{background:var(--line-2)}
 
 .tsk-offer h3 em{color:#fff}
-.tsk-offer-kicker{color:rgba(255,255,255,.72)}
-.tsk-offer-kicker::before{background:#fff}
 
 .ac.open{
   background:var(--white); border:1px solid var(--line);
