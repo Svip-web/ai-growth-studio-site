@@ -358,5 +358,23 @@
     "height": 1086,
     "src": "assets/media/1d14fabbacfdcb-640.webp",
     "srcset": "assets/media/1d14fabbacfdcb-320.webp 320w, assets/media/1d14fabbacfdcb-640.webp 640w, assets/media/1d14fabbacfdcb-1280.webp 1280w"
+  },
+  "assets/works/offer-ugc-natural-v2.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/offer-ugc-natural-v2-640.webp",
+    "srcset": "assets/media/offer-ugc-natural-v2-320.webp 320w, assets/media/offer-ugc-natural-v2-640.webp 640w, assets/media/offer-ugc-natural-v2-1280.webp 1280w"
+  },
+  "assets/works/offer-review-natural-v2.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/offer-review-natural-v2-640.webp",
+    "srcset": "assets/media/offer-review-natural-v2-320.webp 320w, assets/media/offer-review-natural-v2-640.webp 640w, assets/media/offer-review-natural-v2-1280.webp 1280w"
+  },
+  "assets/works/offer-reel-natural-v2.png": {
+    "width": 1448,
+    "height": 1086,
+    "src": "assets/media/offer-reel-natural-v2-640.webp",
+    "srcset": "assets/media/offer-reel-natural-v2-320.webp 320w, assets/media/offer-reel-natural-v2-640.webp 640w, assets/media/offer-reel-natural-v2-1280.webp 1280w"
   }
 }
