@@ -12,8 +12,8 @@
 <link rel="preload" href="assets/fonts/manrope-normal-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/playfair-normal-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 
-<link rel="stylesheet" href="assets/site.css?v=3c13085ef46e">
-<script src="assets/site.js?v=6f4e5e24a31c" defer></script>
+<link rel="stylesheet" href="assets/site.css?v=f247e65d2b6f">
+<script src="assets/site.js?v=1be4860c5760" defer></script>
 </head>
 <body>
 
@@ -27,15 +27,20 @@
     <div class="header-actions">
       <div class="lang"><a href="#" class="on">RU</a><i></i><span title="Английская версия готовится">EN</span></div>
       <a class="btn btn-y btn-sm" href="#contact">Получить консультацию</a>
-      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span></button>
+      <button class="burger" id="burger" type="button" aria-label="Открыть меню" aria-controls="mnav" aria-expanded="false"><span></span><span></span></button>
     </div>
   </div>
-  <div class="mnav" id="mnav">
+</header>
+  <nav class="mnav" id="mnav" aria-label="Мобильная навигация" hidden>
+    <div class="mnav-links">
     <a href="#services">Услуги</a><a href="#cases">Работы</a><a href="#process">Этапы работы</a>
     <a href="#about">О нас</a><a href="#reviews">Отзывы</a><a href="#contact">Контакты</a>
-    <a class="btn btn-y" href="#contact">Получить консультацию</a>
-  </div>
-</header>
+    </div>
+    <a class="btn btn-y hero-cta" href="#contact">
+      <span class="hero-cta-copy"><strong>Получить консультацию</strong></span>
+      <span class="hero-btn-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"/><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M3 12.5c2.8 1.5 5.8 2.2 9 2.2s6.2-.7 9-2.2"/><path d="M10.5 13.5h3v2h-3z"/></svg></span>
+    </a>
+  </nav>
 
 <!-- HERO -->
 <section class="hero">

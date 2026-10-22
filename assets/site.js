@@ -387,15 +387,66 @@
   /* ---------- шапка и меню ---------- */
   var hdr = document.getElementById('hdr'), headerStuck;
   function updateHeader(){
+    if(hdr.classList.contains('menu-open')) return;
     var stuck = scrollY > 10;
     if(stuck !== headerStuck){hdr.classList.toggle('stuck', stuck); headerStuck = stuck;}
   }
   addEventListener('scroll', updateHeader, {passive:true});
   updateHeader();
   var burger = document.getElementById('burger'), mnav = document.getElementById('mnav');
-  burger.addEventListener('click', function(){ burger.classList.toggle('on'); mnav.classList.toggle('on'); });
+  var mobileMenuMedia = matchMedia('(max-width:860px)'), menuBackground = [], menuScrollY = 0;
+  function setMobileMenu(isOpen, restoreFocus){
+    if(isOpen && !mobileMenuMedia.matches) return;
+    if(isOpen === mnav.classList.contains('on')) return;
+    if(isOpen){
+      menuScrollY = scrollY;
+      document.body.style.setProperty('--menu-scroll-offset', -menuScrollY + 'px');
+    }
+    burger.classList.toggle('on', isOpen);
+    burger.setAttribute('aria-expanded', String(isOpen));
+    burger.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+    mnav.hidden = !isOpen;
+    mnav.classList.toggle('on', isOpen);
+    hdr.classList.toggle('menu-open', isOpen);
+    document.documentElement.classList.toggle('menu-open', isOpen);
+    document.body.classList.toggle('menu-open', isOpen);
+    if(isOpen){
+      menuBackground = Array.from(document.body.children).filter(function(el){
+        return el !== hdr && el !== mnav && el.tagName !== 'SCRIPT';
+      }).map(function(el){
+        var state = {el:el, inert:el.inert}; el.inert = true; return state;
+      });
+      mnav.querySelector('a').focus({preventScroll:true});
+    } else {
+      menuBackground.forEach(function(state){ state.el.inert = state.inert; });
+      menuBackground = [];
+      document.body.style.removeProperty('--menu-scroll-offset');
+      var scrollBehavior = document.documentElement.style.scrollBehavior;
+      document.documentElement.style.scrollBehavior = 'auto';
+      window.scrollTo(0, menuScrollY);
+      document.documentElement.style.scrollBehavior = scrollBehavior;
+      if(restoreFocus) burger.focus({preventScroll:true});
+    }
+  }
+  burger.addEventListener('click', function(){ setMobileMenu(!mnav.classList.contains('on'), true); });
   mnav.addEventListener('click', function(e){
-    if(e.target.tagName === 'A'){ burger.classList.remove('on'); mnav.classList.remove('on'); }
+    if(e.target.closest('a[href]')) setMobileMenu(false, false);
+  });
+  hdr.addEventListener('click', function(e){
+    if(e.target.closest('a[href]')) setMobileMenu(false, false);
+  });
+  document.addEventListener('keydown', function(e){
+    if(!mnav.classList.contains('on')) return;
+    if(e.key === 'Escape'){ e.preventDefault(); setMobileMenu(false, true); return; }
+    if(e.key !== 'Tab') return;
+    var focusable = Array.from(hdr.querySelectorAll('a[href],button')).concat(Array.from(mnav.querySelectorAll('a[href],button')))
+      .filter(function(el){ return !el.disabled && el.getClientRects().length > 0; });
+    var firstControl = focusable[0], lastControl = focusable[focusable.length - 1];
+    if(e.shiftKey && document.activeElement === firstControl){ e.preventDefault(); lastControl.focus(); }
+    else if(!e.shiftKey && document.activeElement === lastControl){ e.preventDefault(); firstControl.focus(); }
+  });
+  addEventListener('resize', function(){
+    if(!mobileMenuMedia.matches) setMobileMenu(false, false);
   });
   var strip = document.getElementById('strip'); strip.innerHTML += strip.innerHTML;
 
@@ -484,7 +535,7 @@
     function showPop(force){
       if(!force && (popShown || popSeen())) return;
       /* не перекрываем видео и панель кейса */
-      if(vm.classList.contains('on') || drawer.classList.contains('on')) return;
+      if(vm.classList.contains('on') || drawer.classList.contains('on') || mnav.classList.contains('on')) return;
       popShown = true; pop.classList.add('on');
       document.body.style.overflow = 'hidden';
       document.getElementById('pop-x').focus();
