@@ -849,8 +849,6 @@ body.menu-open{position:fixed; top:var(--menu-scroll-offset,0px); left:0; right:
 .founder-stat:first-child{padding-left:0}
 .founder-stat+.founder-stat{border-left:1px solid var(--line)}
 .founder-stat strong{display:block; color:var(--navy); font:600 clamp(25px,2.4vw,34px)/1 "Playfair Display",Georgia,serif}
-.founder-stat strong::after{content:""; display:inline-block; width:7px; height:7px; margin-left:7px;
-  border-radius:50%; background:var(--yellow); vertical-align:middle}
 .founder-stat span{display:block; margin-top:8px; color:var(--mut); font-size:12px; line-height:1.4}
 .founder-notes{display:grid; gap:12px; max-width:570px; margin-top:28px}
 .founder-note{display:flex; align-items:flex-start; gap:12px; margin:0;
