@@ -496,9 +496,10 @@ section{padding:100px 0; position:relative}
 /* ---------- частые вопросы ---------- */
 #faq{padding-bottom:64px}
 .faq-layout{display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);
-  align-items:start; gap:clamp(32px,5vw,72px)}
-.faq-layout>.head{min-width:0; margin-bottom:0}
-.faq-consult{max-width:360px; margin-top:30px; padding:22px; border:1px solid var(--line);
+  grid-template-areas:"heading questions" "consult questions"; grid-template-rows:auto 1fr;
+  align-items:start; column-gap:clamp(32px,5vw,72px); row-gap:30px}
+.faq-layout>.head{grid-area:heading; min-width:0; margin-bottom:0}
+.faq-consult{grid-area:consult; width:100%; max-width:360px; padding:22px; border:1px solid var(--line);
   border-radius:24px; background:var(--white)}
 .faq-consult-person{display:flex; align-items:center; gap:14px}
 .faq-consult-avatar{display:block; flex:none; width:68px; height:68px; border-radius:50%;
@@ -519,7 +520,7 @@ section{padding:100px 0; position:relative}
   50%{box-shadow:0 0 0 5px rgba(76,170,115,.03)}
 }
 @media (prefers-reduced-motion:reduce){.faq-consult-status::before{animation:none}}
-.faq-list{min-width:0; border-top:1px solid var(--line-2)}
+.faq-list{grid-area:questions; min-width:0; border-top:1px solid var(--line-2)}
 .faq-list details{border-bottom:1px solid var(--line-2)}
 .faq-list summary{list-style:none; cursor:pointer; display:flex; align-items:center; gap:18px;
   padding:clamp(18px,2vw,26px) 0; font-size:clamp(16px,1.35vw,19px); font-weight:600;
@@ -1115,7 +1116,8 @@ body,body *{letter-spacing:normal!important}
 }
 @media (max-width:860px){
   .final-in{grid-template-columns:1fr}
-  .faq-layout{grid-template-columns:1fr; gap:26px}
+  .faq-layout{grid-template-columns:1fr; grid-template-areas:"heading" "questions" "consult";
+    grid-template-rows:auto; gap:26px}
   .nav{display:none} .header-actions>.btn{display:none}
   .header-actions{gap:6px; margin-left:auto}
   .header-actions>.lang{gap:6px; padding:7px 9px; border:1px solid var(--line);
