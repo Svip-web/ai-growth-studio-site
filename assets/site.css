@@ -59,6 +59,7 @@
   --r:22px; --r-lg:28px;
   --e:cubic-bezier(.22,.61,.36,1);
   --wrap:1300px;
+  --section-gap:80px;
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -78,7 +79,8 @@ h2{font-family:"Playfair Display",Georgia,serif; font-weight:600; letter-spacing
 h3{font-family:Manrope,sans-serif; font-weight:700; letter-spacing:0; line-height:1.2;
   font-size:clamp(17px,1.4vw,20px)}
 .wrap{max-width:var(--wrap); margin:0 auto; padding:0 clamp(20px,4vw,48px)}
-section{padding:100px 0; position:relative}
+/* Each adjacent section contributes half of the shared content-to-content gap. */
+section{padding:calc(var(--section-gap) / 2) 0; position:relative}
 
 /* ---------- элементы ---------- */
 .lead{font-size:clamp(16px,1.35vw,18.5px); line-height:1.6; color:var(--mut); max-width:560px}
@@ -173,7 +175,7 @@ body.menu-open{position:fixed; top:var(--menu-scroll-offset,0px); left:0; right:
   font:800 15px/1.25 Manrope; box-shadow:none}
 
 /* ---------- hero ---------- */
-.hero{padding:24px 0 82px}
+.hero{padding:24px 0 calc(var(--section-gap) / 2)}
 .hero-in{position:relative; isolation:isolate; overflow:hidden;
   --hero-block-pad:clamp(44px,5vw,68px); --hero-row-gap:clamp(28px,3vw,40px);
   display:grid; grid-template-columns:1fr 1.02fr; gap:clamp(30px,4.4vw,72px); align-items:center;
@@ -470,8 +472,7 @@ body.menu-open{position:fixed; top:var(--menu-scroll-offset,0px); left:0; right:
 @media (prefers-reduced-motion:reduce){.acc-note-art,.acc-gallery-frame.is-main img{animation:none}}
 
 /* ---------- схема «задача → создаём → результат» ---------- */
-#process{background:linear-gradient(to bottom,var(--paper-2) 0,var(--paper) clamp(130px,11vw,180px));
-  padding-top:100px}
+#process{background:linear-gradient(to bottom,var(--paper-2) 0,var(--paper) clamp(130px,11vw,180px))}
 .flow{position:relative; display:grid; grid-template-columns:.9fr 1.16fr .94fr; gap:14px;
   align-items:stretch; margin-bottom:clamp(36px,4.4vw,66px); padding:20px; border-radius:30px;
   background:var(--navy); box-shadow:0 28px 62px rgba(16,41,74,.18); overflow:hidden}
@@ -504,7 +505,6 @@ body.menu-open{position:fixed; top:var(--menu-scroll-offset,0px); left:0; right:
 .flow-result .flow-tags span{background:rgba(255,255,255,.54); color:var(--navy)}
 
 /* ---------- частые вопросы ---------- */
-#faq{padding-bottom:64px}
 .faq-layout{display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);
   grid-template-areas:"heading questions" "consult questions"; grid-template-rows:auto 1fr;
   align-items:start; column-gap:clamp(32px,5vw,72px); row-gap:30px}
@@ -827,8 +827,7 @@ body.menu-open{position:fixed; top:var(--menu-scroll-offset,0px); left:0; right:
 .process-action{display:flex; justify-content:center; margin-top:clamp(30px,3.6vw,50px)}
 
 /* ---------- основатель ---------- */
-.founder-section{overflow:hidden; background:var(--paper); padding:48px 0 0}
-.founder-section+#process{padding-top:64px}
+.founder-section{overflow:hidden; background:var(--paper)}
 .founder-card{position:relative; display:grid; grid-template-columns:minmax(360px,.9fr) minmax(0,1.1fr);
   gap:clamp(42px,6vw,82px); align-items:start; padding:clamp(28px,3.4vw,48px); border-radius:34px;
   background:var(--white); box-shadow:0 26px 70px rgba(16,41,74,.09)}
@@ -878,7 +877,7 @@ body.menu-open{position:fixed; top:var(--menu-scroll-offset,0px); left:0; right:
 .sl-nav svg{width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
 
 /* ---------- финал ---------- */
-.final{background:var(--paper); color:#fff; padding:0 0 80px; scroll-margin-top:100px}
+.final{background:var(--paper); color:#fff; scroll-margin-top:100px}
 .final h2{color:#fff; font-size:clamp(40px,4.3vw,60px); line-height:1.05; margin:23px 0 20px}
 .final h2 em{display:block; color:var(--yellow); font-weight:500; font-style:italic}
 .final-in{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:center;
@@ -941,7 +940,7 @@ body.menu-open{position:fixed; top:var(--menu-scroll-offset,0px); left:0; right:
 .form.sent .form-body{display:none}
 
 /* ---------- подвал ---------- */
-.ftr{padding:28px 0 22px; border-top:1px solid var(--line)}
+.ftr{padding:calc(var(--section-gap) / 2) 0 22px; border-top:1px solid var(--line)}
 .ftr-in{display:grid; gap:26px}
 .ftr-main{display:grid; grid-template-columns:minmax(280px,1.2fr) minmax(200px,.8fr) minmax(170px,.6fr);
   align-items:start; gap:clamp(24px,4vw,56px)}
@@ -1098,9 +1097,9 @@ body.menu-open{position:fixed; top:var(--menu-scroll-offset,0px); left:0; right:
 .ac.open .ac-num,.ac-label,.ac-cols h4{color:var(--navy)}
 .ac-result{background:var(--paper-2)}
 
-#process{background:var(--paper); padding-bottom:0}
+#process{background:var(--paper)}
 
-.about-section{background:var(--paper); padding-bottom:0}
+.about-section{background:var(--paper)}
 .about-question-label{color:rgba(255,255,255,.72)}
 .about-school-mark{background:#fff; color:var(--navy)}
 .about-school-result strong{color:#fff}
@@ -1172,8 +1171,8 @@ body,body *{letter-spacing:normal!important}
   .case{flex-basis:64%}
 }
 @media (max-width:720px){
-  #faq{padding-top:60px}
-  .hero{padding:14px 0 18px}
+  :root{--section-gap:60px}
+  .hero{padding:14px 0 calc(var(--section-gap) / 2)}
   .hero-in{width:calc(100% - 24px); min-height:0; padding:30px 18px 26px;
     border-radius:24px; gap:22px; box-shadow:0 18px 48px rgba(16,42,67,.08)}
   .hero-in::before{width:210px; height:210px; right:-130px; bottom:-130px}
@@ -1182,7 +1181,6 @@ body,body *{letter-spacing:normal!important}
   .hvisual-streams{
     -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 12%,#000 88%,transparent 100%);
     mask-image:linear-gradient(to bottom,transparent 0%,#000 12%,#000 88%,transparent 100%)}
-  .tasks{padding-top:60px}
   .tsk-btns{display:flex; grid-template-columns:none; gap:10px; overflow-x:auto;
     scroll-snap-type:x mandatory; scroll-behavior:smooth; scrollbar-width:none;
     overscroll-behavior-x:contain; touch-action:manipulation; padding:4px 0 16px; margin-bottom:0}
@@ -1216,8 +1214,6 @@ body,body *{letter-spacing:normal!important}
   .acc-gallery-head b{font-size:9px; padding:5px 7px}
   .acc-gallery-frame{border-radius:9px}
   .acc-gallery-frame>span{top:6px; left:6px; min-width:20px; height:20px; border-radius:6px; font-size:8px}
-  .founder-section{padding-top:32px}
-  .founder-section+#process{padding-top:48px}
   .founder-card{grid-template-columns:1fr; padding:24px}
   .founder-media{max-width:620px; width:100%; margin:0 auto}
   .founder-shot{height:min(620px,105vw)}
@@ -1286,7 +1282,7 @@ body,body *{letter-spacing:normal!important}
   .steps .stp:hover{transform:none}
   .steps .stp::after{transition-delay:.05s}
   .sl-head{flex-direction:column; align-items:flex-start}
-  .final{padding:0 0 60px; scroll-margin-top:90px}
+  .final{scroll-margin-top:90px}
   .final-in{padding:26px 18px 18px; border-radius:28px; gap:28px}
   .final h2{font-size:clamp(34px,9.3vw,42px); margin:20px 0 17px}
   .final-copy>.lead{font-size:15px}
@@ -1300,7 +1296,7 @@ body,body *{letter-spacing:normal!important}
   .final .form{padding:22px 18px; border-radius:21px}
   .final .form-t{font-size:20px; margin-bottom:20px}
   .form-contact-fields{grid-template-columns:1fr; gap:0}
-  .ftr{padding:24px 0 20px}
+  .ftr{padding:calc(var(--section-gap) / 2) 0 20px}
   .ftr-in{gap:22px}
   .ftr-identity{gap:18px}
   .ftr-identity p{font-size:13px}
