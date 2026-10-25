@@ -1,2 +1,7 @@
 КАК-ПОЛЬЗОВАТЬСЯ.txt
+private/
+*.secret.php
+.env
+.env.*
+!.env.example
 

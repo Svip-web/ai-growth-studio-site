@@ -14,6 +14,21 @@
       img.src = img.dataset.src; delete img.dataset.src;
     });
   }
+  var locale = window.STUDIO_LOCALE || {};
+  function tr(value){
+    var key = value.replace(/\s+/g, ' ').trim();
+    return locale.text && locale.text[key] || value;
+  }
+  function localize(value){
+    if(typeof value === 'string') return tr(value);
+    if(Array.isArray(value)) return value.map(localize);
+    if(value && typeof value === 'object'){
+      var result = {};
+      Object.keys(value).forEach(function(key){ result[key] = localize(value[key]); });
+      return result;
+    }
+    return value;
+  }
   /* ---------- данные ---------- */
   var SERVICES = [
     {n:'AI-фотосессии', img:'01-photo-clean.png', ph:'Product',
@@ -95,6 +110,12 @@
     {n:'Визуальная концепция',    t:'Мудборд и направление для бренда',        f:'10-process-clean.png',        w:1536, h:1024}
   ];
 
+  SERVICES = localize(SERVICES); TASKS = localize(TASKS);
+  CASES = localize(CASES); VIDEOS = localize(VIDEOS);
+  document.querySelectorAll('a[data-language]').forEach(function(link){
+    link.addEventListener('click', function(){ link.hash = location.hash; });
+  });
+
   /* ---------- задачи: выбор ситуации ---------- */
   var tbtns = document.getElementById('tskbtns'), tout = document.getElementById('tskout');
   if(tbtns && tout){
@@ -110,7 +131,7 @@
       if(!t) return;
       activeTask = i;
       tout.innerHTML = '<div class="tsk-media"><img ' + imageAttrs('assets/tasks/' + t.img, '(max-width: 720px) calc(100vw - 72px), 480px') + ' alt="' + t.alt + '"></div>' +
-        '<div class="tsk-info"><p class="tsk-q">' + t.q + '</p><p class="tsk-kicker">В решении</p>' +
+        '<div class="tsk-info"><p class="tsk-q">' + t.q + '</p><p class="tsk-kicker">' + tr('В решении') + '</p>' +
         '<div class="tsk-list">' + t.out.map(function(x){ return '<span>' + x + '</span>'; }).join('') + '</div></div>';
       tbtns.querySelectorAll('button').forEach(function(b){
         var active = +b.dataset.i === i;
@@ -153,11 +174,11 @@
       (s.img ? '<span class="ac-preview" aria-hidden="true"><img ' +
         imageAttrs('assets/services/' + s.img, '(max-width: 1300px) 20vw, 260px', true) + ' alt=""></span>' : '') + '</button>' +
       '<div class="ac-body" id="' + panelId + '" role="region" aria-labelledby="' + triggerId + '"><div class="ac-in"><div class="ac-txt">' +
-      '<span class="ac-label">Задача</span><p class="ac-q">' + s.q + '</p>' +
-      '<div class="ac-result"><span class="ac-label">Результат</span><p>' + s.d + '</p></div><div class="ac-cols">' +
-      '<div><h4>Что входит</h4><ul>' + s.in.map(function(x){return '<li>' + x + '</li>';}).join('') + '</ul></div>' +
-      '<div><h4>Кому подходит</h4><ul>' + s.who.map(function(x){return '<li>' + x + '</li>';}).join('') + '</ul></div>' +
-      '</div><a class="btn btn-n hero-cta service-cta" href="#contact"><span class="hero-cta-copy"><strong>Обсудить задачу</strong></span><span class="hero-btn-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"/><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M3 12.5c2.8 1.5 5.8 2.2 9 2.2s6.2-.7 9-2.2"/><path d="M10.5 13.5h3v2h-3z"/></svg></span></a></div>' +
+      '<span class="ac-label">' + tr('Задача') + '</span><p class="ac-q">' + s.q + '</p>' +
+      '<div class="ac-result"><span class="ac-label">' + tr('Результат') + '</span><p>' + s.d + '</p></div><div class="ac-cols">' +
+      '<div><h4>' + tr('Что входит') + '</h4><ul>' + s.in.map(function(x){return '<li>' + x + '</li>';}).join('') + '</ul></div>' +
+      '<div><h4>' + tr('Кому подходит') + '</h4><ul>' + s.who.map(function(x){return '<li>' + x + '</li>';}).join('') + '</ul></div>' +
+      '</div><a class="btn btn-n hero-cta service-cta" href="#contact"><span class="hero-cta-copy"><strong>' + tr('Обсудить задачу') + '</strong></span><span class="hero-btn-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"/><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M3 12.5c2.8 1.5 5.8 2.2 9 2.2s6.2-.7 9-2.2"/><path d="M10.5 13.5h3v2h-3z"/></svg></span></a></div>' +
       (s.img
         ? '<img class="ac-shot" ' + imageAttrs('assets/services/' + s.img, '(max-width: 1024px) calc(100vw - 96px), 580px', i !== 0) + ' alt="' + s.n + '">'
         : '<div class="ph" data-ph="' + s.ph + '"></div>') +
@@ -298,7 +319,7 @@
       img.hidden = true; ph.hidden = false;
     }
     document.getElementById('dr-note').textContent =
-      'Работа студии: показывает, что можно создать с помощью AI. Проекты для конкретных брендов публикуем только с их согласия.';
+      tr('Работа студии: показывает, что можно создать с помощью AI. Проекты для конкретных брендов публикуем только с их согласия.');
     drawer.classList.add('on'); drback.classList.add('on');
     drawer.setAttribute('aria-hidden','false'); document.body.style.overflow = 'hidden';
   }
@@ -315,11 +336,11 @@
   /* ---------- видео ---------- */
   function vcard(v, cls){
     return '<button class="vc ' + (cls || '') + '" data-id="' + v.id + '" data-name="' + v.name + '"' +
-      ' aria-label="Смотреть историю: ' + v.name + '">' +
-      '<img ' + imageAttrs('assets/covers/' + v.cover, '(max-width: 720px) 88vw, (max-width: 1024px) 48vw, 390px') + ' alt="Отзыв: ' + v.name + '"' +
+      ' aria-label="' + tr('Смотреть историю:') + ' ' + v.name + '">' +
+      '<img ' + imageAttrs('assets/covers/' + v.cover, '(max-width: 720px) 88vw, (max-width: 1024px) 48vw, 390px') + ' alt="' + tr('Отзыв:') + ' ' + v.name + '"' +
       ' onerror="this.onerror=null;this.srcset=\'\';this.src=\'' + IMAGE_ASSETS['assets/covers/story-recording-clean.png'].src + '\'">' +
       '<span class="vc-play"></span>' +
-      '<span class="vc-meta"><b>' + v.name + '</b><span>Участница AI Growth Studio</span></span></button>';
+      '<span class="vc-meta"><b>' + v.name + '</b><span>' + tr('Участница AI Growth Studio') + '</span></span></button>';
   }
   var videoRail = document.getElementById('vwall');
   videoRail.innerHTML = VIDEOS.map(function(v){ return vcard(v); }).join('');
@@ -364,7 +385,7 @@
     try{ vmf.contentWindow.postMessage(JSON.stringify({event:'command', func:func, args:[]}), '*'); }catch(e){}
   }
   function openVideo(id, name){
-    muted = true; vmSound.textContent = 'Включить звук';
+    muted = true; vmSound.textContent = tr('Включить звук');
     vmf.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&mute=1&rel=0&playsinline=1&enablejsapi=1';
     document.getElementById('vmname').textContent = name;
     vm.classList.add('on'); document.body.style.overflow = 'hidden';
@@ -375,7 +396,7 @@
   });
   vmSound.addEventListener('click', function(){
     muted = !muted; ytCmd(muted ? 'mute' : 'unMute');
-    vmSound.textContent = muted ? 'Включить звук' : 'Выключить звук';
+    vmSound.textContent = tr(muted ? 'Включить звук' : 'Выключить звук');
   });
   document.getElementById('vmx').addEventListener('click', closeVideo);
   vm.addEventListener('click', function(e){ if(e.target === vm) closeVideo(); });
@@ -404,7 +425,7 @@
     }
     burger.classList.toggle('on', isOpen);
     burger.setAttribute('aria-expanded', String(isOpen));
-    burger.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+    burger.setAttribute('aria-label', tr(isOpen ? 'Закрыть меню' : 'Открыть меню'));
     mnav.hidden = !isOpen;
     mnav.classList.toggle('on', isOpen);
     hdr.classList.toggle('menu-open', isOpen);
@@ -451,20 +472,71 @@
   var strip = document.getElementById('strip'); strip.innerHTML += strip.innerHTML;
 
   /* ---------- форма ---------- */
-  var form = document.getElementById('form');
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var ok = true,
-        name = document.getElementById('i-name'),
-        contact = document.getElementById('i-contact');
-    document.getElementById('f-name').classList.toggle('err', !name.value.trim());
-    if(!name.value.trim()) ok = false;
-    /* телеграм или телефон — принимаем и то и другое */
-    var bad = contact.value.trim().length < 3;
-    document.getElementById('f-contact').classList.toggle('err', bad);
-    if(bad) ok = false;
-    if(!ok) return;
-    form.classList.add('sent'); document.getElementById('ok').classList.add('on');
+  function bindLeadForm(id, prefix, source, onSuccess){
+    var leadForm = document.getElementById(id);
+    var name = document.getElementById(prefix + 'name');
+    var contact = document.getElementById(prefix + 'contact');
+    var status = leadForm.querySelector('.lead-status');
+    var help = leadForm.querySelector('.lead-help');
+    var pending = false, previousPayload = '', requestId = '';
+    var staticPreview = /(^|\.)github\.io$/i.test(location.hostname);
+    function showLeadError(message){
+      status.classList.add('is-error'); status.textContent = tr(message);
+      help.hidden = false;
+    }
+    leadForm.addEventListener('submit', async function(e){
+      e.preventDefault();
+      if(pending) return;
+      var invalidName = !name.value.trim(), invalidContact = contact.value.trim().length < 3;
+      name.closest('.field').classList.toggle('err', invalidName);
+      contact.closest('.field').classList.toggle('err', invalidContact);
+      name.setAttribute('aria-invalid', String(invalidName));
+      contact.setAttribute('aria-invalid', String(invalidContact));
+      if(invalidName || invalidContact){ (invalidName ? name : contact).focus(); return; }
+      if(staticPreview){
+        showLeadError('Заявка не отправлена. Попробуйте позже или напишите нам в Telegram.');
+        return;
+      }
+      var payload = {name:name.value.trim(), contact:contact.value.trim(),
+        question:leadForm.querySelector('textarea').value.trim(),
+        website:leadForm.querySelector('[name="website"]').value,
+        language:document.documentElement.lang === 'en' ? 'en' : 'ru', source:source};
+      var signature = JSON.stringify(payload);
+      if(signature !== previousPayload){
+        requestId = crypto.randomUUID(); previousPayload = signature;
+      }
+      payload.request_id = requestId;
+      pending = true; leadForm.setAttribute('aria-busy','true');
+      var controls = Array.from(leadForm.querySelectorAll('input,textarea,button'));
+      controls.forEach(function(control){control.disabled = true;});
+      status.textContent = tr('Отправляем заявку…'); status.classList.remove('is-error'); help.hidden = true;
+      var controller = new AbortController(), postStarted = false;
+      var timeout = setTimeout(function(){controller.abort();},20000);
+      try {
+        var endpoint = new URL('api/lead.php',location.href);
+        var options = {credentials:'same-origin',cache:'no-store',signal:controller.signal};
+        var init = await fetch(endpoint,options);
+        var session = await init.json();
+        if(!init.ok || !session.ok || !/^[a-f0-9]{64}$/.test(session.csrf)) throw Error('unavailable');
+        postStarted = true;
+        var response = await fetch(endpoint,{...options,method:'POST',
+          headers:{'Content-Type':'application/json','X-Lead-CSRF':session.csrf},body:JSON.stringify(payload)});
+        var result = await response.json();
+        if(!response.ok || result.ok !== true) throw Error(result.code || 'status_unknown');
+        status.textContent = ''; onSuccess();
+      } catch(error){
+        showLeadError(error.message === 'rate_limit' ? 'Слишком много заявок. Попробуйте через 15 минут или напишите в Telegram.' :
+          error.message === 'status_unknown' || (postStarted && (error.name === 'AbortError' || error.name === 'SyntaxError' || error instanceof TypeError)) ?
+          'Не удалось подтвердить доставку. Не отправляйте заявку повторно — свяжитесь с нами в Telegram.' :
+          'Заявка не отправлена. Попробуйте позже или напишите нам в Telegram.');
+      } finally {
+        clearTimeout(timeout); pending = false; leadForm.removeAttribute('aria-busy');
+        controls.forEach(function(control){control.disabled = false;});
+      }
+    });
+  }
+  bindLeadForm('form','i-','contact',function(){
+    document.getElementById('form').classList.add('sent'); document.getElementById('ok').classList.add('on');
   });
 
   /* ---------- логотип: свет за курсором и искры ---------- */
@@ -551,16 +623,7 @@
     addEventListener('keydown', function(e){
       if(e.key === 'Escape' && pop.classList.contains('on')) hidePop();
     });
-    document.getElementById('pop-form').addEventListener('submit', function(e){
-      e.preventDefault();
-      var good = true,
-          nm = document.getElementById('pi-name'), ct = document.getElementById('pi-contact');
-      document.getElementById('pf-name').classList.toggle('err', !nm.value.trim());
-      if(!nm.value.trim()) good = false;
-      var short = ct.value.trim().length < 3;
-      document.getElementById('pf-contact').classList.toggle('err', short);
-      if(short) good = false;
-      if(!good) return;
+    bindLeadForm('pop-form','pi-','popup',function(){
       document.getElementById('pop-box').classList.add('sent');
       document.getElementById('pop-ok').classList.add('on');
     });

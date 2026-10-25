@@ -4,6 +4,10 @@
 
 Публічна версія: https://svip-web.github.io/ai-growth-studio-site/
 
+Англійська версія: https://svip-web.github.io/ai-growth-studio-site/en.html
+
+Підготовлено надсилання заявок у Telegram для майбутнього PHP-хостингу. На GitHub Pages форми не надсилають заявки. Інструкція перенесення й вимоги — у [deploy/HOSTING.md](deploy/HOSTING.md). Токен не зберігається в репозиторії.
+
 ## Редагування та перевірка
 
 Сайт не потребує встановлення залежностей або серверного збирання.

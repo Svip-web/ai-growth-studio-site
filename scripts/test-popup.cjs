@@ -25,6 +25,7 @@ function element(id) {
 const pop = element('pop'), hero = element('hero-consult'), menu = element('mnav');
 document.activeElement = hero;
 vm.runInNewContext(block, {document, vm:element('video'), drawer:element('drawer'), mnav:menu,
+  bindLeadForm(){},
   addEventListener(name, handler) { globalHandlers.set(name, handler); },
   setTimeout() { throw Error('Unexpected popup timer'); },
   setInterval() { throw Error('Unexpected recurring popup timer'); }});

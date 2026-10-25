@@ -23,7 +23,7 @@ let rendered = '', renders = 0;
 const output = {set innerHTML(value) { rendered = value; renders++; }};
 vm.runInNewContext(source.slice(start, end), {
   document:{getElementById:id => id === 'tskbtns' ? container : output},
-  TASKS:tasks, imageAttrs:() => 'src="test.webp"'
+  TASKS:tasks, imageAttrs:() => 'src="test.webp"', tr:value=>value
 });
 function selected(index) {
   assert(rendered.includes('Result ' + index), 'Correct result must render');

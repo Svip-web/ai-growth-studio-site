@@ -6,7 +6,8 @@
   "scripts": {
     "build": "node scripts/build.cjs",
     "check": "node scripts/check-site.cjs",
-    "test": "node scripts/check-site.cjs && node scripts/test-task-picker.cjs && node scripts/test-popup.cjs"
+    "package:hosting": "node scripts/package-hosting.cjs",
+    "test": "node scripts/check-site.cjs && node scripts/test-task-picker.cjs && node scripts/test-popup.cjs && node scripts/test-i18n.cjs && node scripts/test-leads.cjs"
   },
   "engines": { "node": ">=18" }
 }

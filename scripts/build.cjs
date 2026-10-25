@@ -35,4 +35,9 @@ const scriptTag = html.match(/<script src="assets\/site\.js[^>]+><\/script>/)[0]
 html = html.replace(/\s*<script src="assets\/site\.js[^>]+><\/script>\s*/, '\n')
   .replace('</head>', scriptTag + '\n</head>');
 fs.writeFileSync(path.join(root, 'index.html'), html);
+const i18n = require('./i18n.cjs');
+const english = JSON.parse(read('assets/translations/en.json')).text;
+const localeScript = 'window.STUDIO_LOCALE = '+JSON.stringify({text:i18n.runtimeCatalog(script,english)})+';\n';
+fs.writeFileSync(path.join(root,'assets/site.en.js'),localeScript);
+fs.writeFileSync(path.join(root,'en.html'),i18n.renderEnglish(html,english,hash(localeScript)));
 require('./check-site.cjs');

@@ -694,6 +694,7 @@ body.menu-open{position:fixed; top:var(--menu-scroll-offset,0px); left:0; right:
 .case .shot::after{content:"Открыть"; position:absolute; right:14px; bottom:14px; padding:8px 12px;
   z-index:3; border-radius:999px; background:rgba(255,255,255,.92); color:var(--navy); font:700 11px Manrope;
   opacity:.88; transform:none; transition:.3s var(--e); backdrop-filter:blur(8px)}
+html[lang="en"] .case .shot::after{content:"View"}
 .case-no{position:absolute; z-index:3; left:14px; top:14px; display:grid; place-items:center;
   width:34px; height:34px; border-radius:50%; color:#fff; background:rgba(16,41,74,.78);
   border:1px solid rgba(255,255,255,.35); backdrop-filter:blur(8px); font:800 10px/1 Manrope}
@@ -954,6 +955,7 @@ body.menu-open{position:fixed; top:var(--menu-scroll-offset,0px); left:0; right:
   font:600 14px Manrope; color:var(--navy); text-decoration:none; transition:color .25s}
 .ftr-nav a:hover,.ftr-telegram:hover strong{color:var(--yellow)}
 .ftr-telegram{display:flex; align-items:center; gap:12px; color:var(--navy); text-decoration:none}
+.ftr-socials{display:grid; gap:16px}
 .ftr-tg-icon{display:grid; place-items:center; flex:none; width:40px; height:40px;
   border-radius:12px; background:var(--navy); color:var(--white)}
 .ftr-tg-icon svg{width:19px; height:19px; fill:none; stroke:currentColor; stroke-width:1.6; stroke-linejoin:round}
@@ -1323,3 +1325,11 @@ body,body *{letter-spacing:normal!important}
   .hero-cta{min-height:62px; padding-left:20px}
   .hero-cta-copy strong{font-size:15.5px}
 }
+.lead-trap{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.lead-status:empty{display:none}
+.lead-status,.lead-help{font-size:13px;line-height:1.55;margin:12px 0 0}
+.lead-status.is-error{color:#9c312a}
+.lead-help{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.lead-help:not([hidden]){display:inline-block}
+.form-cta:disabled{cursor:not-allowed;opacity:.65}
+.form-cta:disabled::after{animation:none}
