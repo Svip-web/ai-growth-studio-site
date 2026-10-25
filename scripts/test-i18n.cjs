@@ -32,6 +32,13 @@ assert.match(russian,/<h1><span>Хотите <em class="hero-accent">краси�
 assert.match(english,/<h3 id="tsk-offer-title">A different goal\? <em>We’ll tailor a solution<\/em> to your brand\.<\/h3>/);
 assert.match(russian,/<h3 id="tsk-offer-title">Не нашли свою задачу\? <em>Соберём решение<\/em> под ваш бренд<\/h3>/);
 const css=read('assets/site.css');
+assert.match(css,/@media \(max-width:720px\)\{\s*html\[lang="en"\] \.hero-in\{grid-template-columns:minmax\(0,1fr\)\}/,
+  'English mobile hero needs a shrinkable single column');
+assert.match(css,/html\[lang="en"\] \.hero-in>div:first-child\{container-type:inline-size\}/,
+  'Mobile heading must be sized against the available copy width');
+assert(css.includes('font-size:clamp(30px,11.5cqw,44px)'), 'English mobile font scales with its card, not the screen');
+assert.match(css,/html\[lang="en"\] \.hero-accent\{max-width:100%; overflow-wrap:anywhere\}/,
+  'Even an accent word must never force the heading outside its card');
 assert.match(css,/html\[lang="en"\] \.tsk-offer-art\{position:relative; inset:auto; width:100%; height:auto/,
   'English offer artwork must occupy its own grid cell instead of overlapping copy');
 for(const html of [english,russian]){
