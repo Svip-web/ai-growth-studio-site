@@ -43,6 +43,9 @@ function renderEnglish(html, catalog, localeHash) {
   html = html.replace(/<html lang="ru">/,'<html lang="en">')
     .replace('<link rel="canonical" href="https://svip-web.github.io/ai-growth-studio-site/">',
       '<link rel="canonical" href="https://svip-web.github.io/ai-growth-studio-site/en.html">');
+  // Localize the phrase as a whole and use two balanced lines, not Russian word breaks.
+  html = html.replace('<h1><span>Хотите <em class="hero-accent">красиво</em></span><span><em class="hero-accent">упаковать</em></span><span>свой бренд?</span></h1>',
+    '<h1><span>Хотите <em class="hero-accent">красиво упаковать</em></span><span>свой бренд?</span></h1>');
   html = html.replace(/<!--[\s\S]*?-->|<[^>]+>|[^<]+/g, token=>{
     if(token.startsWith('<!--')) return token;
     if(token.startsWith('<')) return token.replace(/\b(alt|title|placeholder|aria-label|content|data-ph)="([^"]*)"/g,

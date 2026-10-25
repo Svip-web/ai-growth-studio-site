@@ -25,6 +25,10 @@ assert.equal(localized.TASKS[0].img,data.TASKS[0].img,'Localization must not cha
 assert.equal(context.tr('Закрыть меню'),'Close menu');
 assert.equal(context.tr('Включить звук'),'Unmute');
 assert.equal(context.tr('Unknown'),'Unknown');
+assert.match(english,/<h1><span>Ready to <em class="hero-accent">elevate<\/em><\/span><span>your brand\?<\/span><\/h1>/,
+  'English hero must use a natural phrase and two balanced line groups');
+assert(!english.includes('beautifully'),'Do not retain the awkward literal hero translation');
+assert.match(russian,/<h1><span>Хотите <em class="hero-accent">красиво<\/em><\/span><span><em class="hero-accent">упаковать<\/em><\/span><span>свой бренд\?<\/span><\/h1>/);
 assert.match(english,/<h3 id="tsk-offer-title">A different goal\? <em>We’ll tailor a solution<\/em> to your brand\.<\/h3>/);
 assert.match(russian,/<h3 id="tsk-offer-title">Не нашли свою задачу\? <em>Соберём решение<\/em> под ваш бренд<\/h3>/);
 const css=read('assets/site.css');
