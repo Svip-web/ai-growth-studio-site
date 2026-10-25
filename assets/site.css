@@ -1333,3 +1333,18 @@ body,body *{letter-spacing:normal!important}
 .lead-help:not([hidden]){display:inline-block}
 .form-cta:disabled{cursor:not-allowed;opacity:.65}
 .form-cta:disabled::after{animation:none}
+
+/* The longer English offer needs its artwork in the grid, not over the copy. */
+html[lang="en"] .tsk-offer-copy{min-width:0; max-width:100%}
+html[lang="en"] .tsk-offer h3{max-width:100%; font-size:clamp(32px,3.6vw,52px);
+  line-height:1.08; text-wrap:balance}
+@media (min-width:721px){
+  html[lang="en"] .tsk-offer{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+    gap:clamp(28px,3vw,42px)}
+  html[lang="en"] .tsk-offer-art{position:relative; inset:auto; width:100%; height:auto;
+    min-height:360px; align-self:stretch; transform:none}
+}
+@media (min-width:721px) and (max-width:1024px){
+  html[lang="en"] .tsk-offer{grid-template-columns:minmax(0,1fr)}
+  html[lang="en"] .tsk-offer-art{min-height:400px; max-width:560px; justify-self:center}
+}

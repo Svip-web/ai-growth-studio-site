@@ -25,6 +25,11 @@ assert.equal(localized.TASKS[0].img,data.TASKS[0].img,'Localization must not cha
 assert.equal(context.tr('Закрыть меню'),'Close menu');
 assert.equal(context.tr('Включить звук'),'Unmute');
 assert.equal(context.tr('Unknown'),'Unknown');
+assert.match(english,/<h3 id="tsk-offer-title">A different goal\? <em>We’ll tailor a solution<\/em> to your brand\.<\/h3>/);
+assert.match(russian,/<h3 id="tsk-offer-title">Не нашли свою задачу\? <em>Соберём решение<\/em> под ваш бренд<\/h3>/);
+const css=read('assets/site.css');
+assert.match(css,/html\[lang="en"\] \.tsk-offer-art\{position:relative; inset:auto; width:100%; height:auto/,
+  'English offer artwork must occupy its own grid cell instead of overlapping copy');
 for(const html of [english,russian]){
   const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(match=>match[1]);
   assert.equal(ids.length,new Set(ids).size);
